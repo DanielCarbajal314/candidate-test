@@ -6,6 +6,9 @@ import {FullWidthComponent} from './full-width/full-width.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { CovalentLayoutModule } from '@covalent/core/layout';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -18,6 +21,9 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     CommonModule,
     RouterModule,
     FontAwesomeModule,
+    CovalentLayoutModule,
+    MatIconModule,
+    MatListModule
   ],
   exports: [
     FullWidthComponent,

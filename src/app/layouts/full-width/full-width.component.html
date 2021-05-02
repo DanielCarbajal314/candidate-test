@@ -1,9 +1,30 @@
-<div class="wrapper">
-  <app-header></app-header>
-
-  <div class="layout layout-full-width" fxFlex>
-    <router-outlet></router-outlet>
-  </div>
-
-  <app-footer></app-footer>
-</div>
+<td-layout class='layout-nav-demo' style="width: 100%;">
+  <td-navigation-drawer flex sidenavTitle="SafeGuard Privacy" name="Daniel Carbajal" email="daniel.carbajal@pucp.edu.com">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/"><mat-icon>home</mat-icon>Home</a>
+      <a mat-list-item routerLink="/weather"><mat-icon>perm_identity</mat-icon>Weather</a>   
+      <a mat-list-item routerLink="/taskboard"><mat-icon>perm_identity</mat-icon>Taskboard</a>      
+      <a mat-list-item routerLink="/notes"><mat-icon>shopping_cart</mat-icon>Notes</a>
+      <a mat-list-item tdLayoutToggle><mat-icon>close</mat-icon>Close Drawer</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
+      <mat-nav-list>
+        <a mat-list-item><mat-icon>account_box</mat-icon>Profile</a>
+      </mat-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav toolbarTitle="Safeguard Privacy" navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-sidenav-content>
+      <div class="main-body">
+        <router-outlet></router-outlet>
+      </div>
+      <td-layout-footer color="primary">
+        <p>&#169; 2020 SafeguardGDPR, LLC</p>
+        <img src="assets/logo-tm-white.png" width="200">
+      </td-layout-footer>
+    </div>
+  </td-layout-nav>
+ </td-layout>
