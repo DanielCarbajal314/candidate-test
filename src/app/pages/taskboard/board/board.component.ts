@@ -23,11 +23,17 @@ export class BoardComponent implements OnInit, OnDestroy {
     this.dragulaService.createGroup(this.list, {
       revertOnSpill: true,
       accepts: (el, target, source, sibling) => {
-        return true;
+        const [targetName, sourceName] = [target.classList[1],source.classList[1] ];
+        return this.notAllowedMovement(targetName, sourceName) ? false : true ;
       }
     });
 
     this.setData();
+  }
+  
+  notAllowedMovement(targetName: string, sourceName: string) {
+    const [ first, second, third ] = ['list-1', 'list-2', 'list-3'];
+    return ( sourceName == first && targetName == third ) || ( sourceName == third && targetName == second );
   }
 
   ngOnDestroy() {
@@ -41,3 +47,4 @@ export class BoardComponent implements OnInit, OnDestroy {
   }
 
 }
+
