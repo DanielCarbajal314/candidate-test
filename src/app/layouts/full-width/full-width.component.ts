@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherUiService } from 'src/app/shared/services/ui/weather-ui.service';
 
 @Component({
   selector: 'app-full-width',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./full-width.component.scss']
 })
 export class FullWidthComponent implements OnInit {
+  public temperature: number = null;
 
-  constructor() { }
+  constructor(private weatherUiService: WeatherUiService) { }
 
   ngOnInit(): void {
+    this.weatherUiService.$temperatureOnFarenheit.subscribe(temperatureOnFarenheit => this.temperature = temperatureOnFarenheit);
   }
 
 }

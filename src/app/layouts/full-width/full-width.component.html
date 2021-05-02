@@ -17,6 +17,10 @@
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
+    <div *ngIf="temperature" td-toolbar-content style="margin-left: 100rem;">
+      Temperature : {{temperature | number :'.1-2' }} °F
+    </div>
+    
     <div td-sidenav-content>
       <div class="main-body">
         <router-outlet></router-outlet>
