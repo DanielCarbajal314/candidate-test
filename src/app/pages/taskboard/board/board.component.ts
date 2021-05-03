@@ -30,10 +30,12 @@ export class BoardComponent implements OnInit, OnDestroy {
 
     this.setData();
   }
-  
+
   notAllowedMovement(targetName: string, sourceName: string) {
     const [ first, second, third ] = ['list-1', 'list-2', 'list-3'];
-    return ( sourceName == first && targetName == third ) || ( sourceName == third && targetName == second );
+    const firstIsMovingToThird = sourceName == first && targetName == third;
+    const thirdIsMovingToSecond = sourceName == third && targetName == second;
+    return firstIsMovingToThird || thirdIsMovingToSecond;
   }
 
   ngOnDestroy() {

@@ -35,7 +35,6 @@ export class WeatherUiService {
   }
 
   loadCoordinates(loadCoordinates) {
-    console.log(loadCoordinates)
     const { longitude, latitude} = loadCoordinates.coords;
     this.coordinates.next({
       lat: latitude,

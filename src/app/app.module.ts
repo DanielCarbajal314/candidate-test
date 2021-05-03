@@ -57,6 +57,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
+
+const dbConfig: DBConfig  = {
+  name: 'SaveGuardPrivacyDb',
+  version: 1,
+  objectStoresMeta: [{
+    store: 'notes',
+    storeConfig: { keyPath: 'id', autoIncrement: true },
+    storeSchema: [
+      { name: 'content', keypath: 'content', options: { unique: false } },
+    ]
+  }]
+};
+
 
 @NgModule({
   declarations: [
@@ -68,7 +82,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     LayoutsModule,
     BrowserAnimationsModule,
-    DragulaModule.forRoot(),
+    DragulaModule.forRoot(),    
+    NgxIndexedDBModule.forRoot(dbConfig),
     FontAwesomeModule,
     CovalentLayoutModule,
     CovalentStepsModule,
